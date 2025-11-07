@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Descobrindo a Geometria – 6º Ano</title>
+
+<style>
+  :root{
+    --yellow:#D4AF37; /* amarelo mostarda */
+    --black:#000000;
+    --bg:#fff9ea;
+    --card:#ffffff;
+    --text:#111;
+  }
+  *{box-sizing:border-box}
+  html { font-size:18px; } /* Aumentei a fonte base para maior legibilidade */
+  body{
+    margin:0;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* HEADER */
+  header.site-header{
+    background:var(--yellow);
+    border-bottom:6px solid var(--black);
+    color:var(--black);
+    padding:18px 16px;
+    display:flex;
+    gap:16px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    position:relative;
+  }
+  header .profile{
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    overflow:hidden;
+    flex:0 0 96px;
+    border:3px solid var(--black);
+    background:#fff;
+  }
+  header .profile img{ width:100%; height:100%; object-fit:cover; display:block; }
+  header .head-text{
+    text-align:center;
+    max-width:900px;
+  }
+  header h1{
+    margin:0;
+    font-size:1.35rem;
+  }
+  header p{
+    margin:6px 0 0;
+    font-size:0.95rem;
+  }
+  header .meta{
+    margin-top:6px;
+    font-weight:700;
+    font-size:0.95rem;
+  }
+
+  /* MAIN CONTAINER */
+  main.container{
+    max-width:1100px;
+    margin:20px auto;
+    padding:0 14px 50px;
+  }
+
+  /* SECTION CARD */
+  .card{
+    background:var(--card);
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  }
+  h2{
+    margin:0 0 12px 0;
+    color:var(--black);
+    font-size:1.1rem;
+    border-left:6px solid var(--black);
+    padding-left:10px;
+  }
+  h3{ margin:8px 0; font-size:1rem; color:var(--black); }
+  p{ margin:10px 0; font-size:1rem; }
+
+  /* GRID FOR ILLUSTRATIONS */
+  .grid-3{
+    display:grid;
+    gap:12px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    margin-top:12px;
+  }
+  .figure{
+    text-align:center;
+    background:#fff8e9;
+    border-radius:8px;
+    padding:10px;
+    border:1px solid rgba(0,0,0,0.06);
+  }
+  .figure img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:6px;
+    background:transparent;
+  }
+  .figure .cap{
+    margin-top:8px;
+    font-weight:700;
+    color:var(--black);
+    font-size:0.98rem;
+  }
+
+  /* small inline examples */
+  .inline-ex{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:10px;
+  }
+  .inline-ex .box{
+    flex:1 1 140px;
+    background:#fff;
+    border-radius:8px;
+    padding:10px;
+    border:1px solid rgba(0,0,0,0.06);
+    text-align:center;
+    font-size:0.95rem;
+  }
+  .notation{
+    font-weight:900;
+    font-size:1.05rem;
+    margin-top:6px;
+  }
+
+  /* images larger in content */
+  .wide-img{
+    width:100%;
+    max-width:720px;
+    display:block;
+    margin:12px auto;
+    border-radius:8px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.08);
+  }
+
+  /* footer */
+  footer.site-footer{
+    background:var(--yellow);
+    border-top:6px solid var(--black);
+    color:var(--black);
+    padding:22px;
+    text-align:center;
+    position:relative;
+  }
+  footer .foot-photo{
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    border:3px solid var(--black);
+    position:absolute;
+    right:18px;
+    top:8px;
+    overflow:hidden;
+    background:#fff;
+  }
+  footer .foot-photo img{ width:100%;height:100%;object-fit:cover; }
+  a { color:var(--black); font-weight:700; text-decoration:underline; }
+
+  /* responsive tweaks */
+  @media (max-width:720px){
+    header{ padding:14px; }
+    header .profile{ width:72px; height:72px; flex:0 0 72px; }
+    .grid-3{ grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); }
+    .figure img{ height:110px; }
+    footer .foot-photo{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <div class="profile" aria-hidden="true">
+    <!-- substitua pela sua foto real quando quiser -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_placeholder.png" alt="Foto do professor (substitua)" onerror="this.src='https://via.placeholder.com/96'">
+  </div>
+
+  <div class="head-text">
+    <h1>Descobrindo a Geometria – 6º Ano</h1>
+    <p class="meta">E.E. Ovídio Pires de Campos — Prof. Josué Luiz do Carmo — Disciplina: Orientação de Estudo - Matemática</p>
+    <p style="margin-top:8px; font-style:italic;">Objetivo: investigar os elementos primitivos da geometria.</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="container" role="main">
+
+  <!-- Definição -->
+  <section class="card" id="definicao">
+    <h2>O que é Geometria?</h2>
+    <p><strong>Geometria</strong> é a parte da matemática que estuda o <strong>espaço</strong> e as figuras geométricas que nele ocupam lugar — desde pontos e linhas até sólidos como cubos e pirâmides.</p>
+
+    <div class="grid-3" aria-hidden="false">
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Black_circle.svg" alt="Ilustração do ponto" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Ponto — representado por letra maiúscula (A, B, C).</div>
+      </div>
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Line_segment.png" alt="Ilustração de reta" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Reta — linha que se estende sem princípio e sem fim (representada por r, s).</div>
+      </div>
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Plane.svg" alt="Ilustração de plano" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Plano — superfície com comprimento e largura (representada por α, β).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conceitos primitivos detalhados -->
+  <section class="card" id="primitivos">
+    <h2>Conceitos primitivos: Ponto, Reta e Plano</h2>
+
+    <h3>Ponto</h3>
+    <p>O ponto não tem dimensão — não possui comprimento, largura nem altura. Representamos por letras maiúsculas: <strong>A, B, C</strong>.</p>
+
+    <div class="inline-ex">
+      <div class="box">
+        <div style="font-size:34px">●</div>
+        <div class="notation">A, B, C</div>
+        <div style="font-size:14px;margin-top:6px">Ex.: a ponta de uma caneta (representada por um ponto)</div>
+      </div>
+
+      <div class="box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Point.svg/240px-Point.svg.png" alt="ponto exemplo" style="width:60px;height:60px;margin:6px auto;display:block;" onerror="this.src='https://via.placeholder.com/60'">
+        <div style="font-size:14px;margin-top:6px">Ponto em um plano</div>
+      </div>
+    </div>
+
+    <h3>Reta</h3>
+    <p>Uma reta é um conjunto infinito de pontos alinhados — sem início e sem fim. Representamos com letras minúsculas (r, s) ou por duas letras com seta dupla: ↔ AB.</p>
+
+    <h3>Plano</h3>
+    <p>Um plano tem comprimento e largura (duas dimensões). Ex.: a superfície de uma mesa. Representamos por letras gregas minúsculas: <strong>α, β</strong>.</p>
+  </section>
+
+  <!-- Reta, semirreta, segmento -->
+  <section class="card" id="tipos-retas">
+    <h2>Reta · Semirreta · Segmento</h2>
+
+    <p><strong>Reta (↔):</strong> não tem princípio nem fim.</p>
+    <p><strong>Semirreta (→):</strong> tem princípio, mas não tem fim.</p>
+    <p><strong>Segmento (—):</strong> tem princípio e fim.</p>
+
+    <div class="grid-3" style="margin-top:12px">
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Line.svg" alt="Exemplo de reta" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Reta — ↔ AB</div>
+      </div>
+
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Ray.svg" alt="Exemplo de semirreta" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Semirreta — → AB</div>
+      </div>
+
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Line_segment_A-B.svg" alt="Exemplo de segmento" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Segmento — AB</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retas coplanares -->
+  <section class="card" id="coplanares">
+    <h2>Retas Coplanares</h2>
+    <p>Retas coplanares pertencem a um mesmo plano. Ex.: retas desenhadas sobre uma folha de papel são coplanares.</p>
+
+    <div class="grid-3" style="margin-top:12px">
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Parallel_lines.svg" alt="retas coplanares paralelas" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Retas paralelas (no mesmo plano)</div>
+      </div>
+
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Intersecting_lines.svg" alt="retas coplanares concorrentes" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Retas concorrentes (no mesmo plano)</div>
+      </div>
+
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Coplanar.svg" alt="exemplo coplanares" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Retas coplanares — pertencem ao plano α</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retas reversas (skew) -->
+  <section class="card" id="reversas">
+    <h2>Retas Reversas (Skew)</h2>
+    <p>Retas reversas são retas que <strong>não pertencem ao mesmo plano</strong> e não se cruzam — não têm ponto em comum. Um exemplo clássico: certas arestas opostas de um cubo.</p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Cube_wireframe.png" alt="Cubo - arestas" class="wide-img" onerror="this.src='https://via.placeholder.com/720x360?text=Imagem+indispon%C3%ADvel'">
+    <p style="text-align:center;font-weight:700;color:var(--black)">Ex.: arestas distantes de um cubo — retas reversas (não coplanares)</p>
+  </section>
+
+  <!-- Retas concorrentes -->
+  <section class="card" id="concorrentes">
+    <h2>Retas Concorrentes</h2>
+    <p>Retas concorrentes são coplanares e apresentam exatamente um ponto em comum — o ponto de interseção.</p>
+
+    <div class="grid-3" style="margin-top:12px">
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Intersecting_Lines.svg" alt="retas concorrentes" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Duas retas concorrentes</div>
+      </div>
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Lines_converge.svg" alt="várias retas concorrentes" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Várias retas passando por um mesmo ponto</div>
+      </div>
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Lines_through_point.svg" alt="retas passando por um ponto" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Em um ponto passam infinitas retas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paralelas e Coincidentes -->
+  <section class="card" id="paralelas-coincidentes">
+    <h2>Retas Paralelas e Coincidentes</h2>
+    <p><strong>Paralelas:</strong> retas que não se encontram e mantêm sempre a mesma distância (ex.: trilhos). <strong>Coincidentes:</strong> retas que têm todos os pontos em comum — são a mesma reta.</p>
+
+    <div class="grid-3" style="margin-top:12px">
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Parallel-lines.svg" alt="retas paralelas" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Retas paralelas</div>
+      </div>
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Coincident_Lines.svg" alt="retas coincidentes" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Retas coincidentes (sobrepostas)</div>
+      </div>
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Train_tracks.jpg" alt="trilhos de trem" onerror="this.src='https://via.placeholder.com/300x150?text=Imagem+indispon%C3%ADvel'">
+        <div class="cap">Ex.: trilhos de trem (paralelas)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notações -->
+  <section class="card" id="notacoes">
+    <h2>Notações rápidas</h2>
+    <ul>
+      <li><strong>Ponto:</strong> letra maiúscula — A, B, C</li>
+      <li><strong>Reta:</strong> letra minúscula — r, s, t ou ↔ AB</li>
+      <li><strong>Semirreta:</strong> → AB (inicia em A e vai até o infinito)</li>
+      <li><strong>Segmento:</strong> AB (vai de A até B)</li>
+      <li><strong>Plano:</strong> letras gregas — α, β</li>
+    </ul>
+  </section>
+
+  <!-- Plano de aula link -->
+  <section class="card" id="plano">
+    <h2>Plano de aula</h2>
+    <p>Cole o link do plano de aula do Google Drive abaixo (ou acesse o arquivo):</p>
+    <p><a href="#" target="_blank" id="linkPlano">Abrir Plano de Aula (cole o link aqui)</a></p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="foot-text">
+    <strong>Atividade desenvolvida pelo Prof. Josué Luiz do Carmo — E.E. Ovídio Pires de Campos — 2025</strong>
+  </div>
+  <div class="foot-photo" aria-hidden="true">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_placeholder.png" alt="Foto do professor (substitua)" onerror="this.src='https://via.placeholder.com/78'">
+  </div>
+</footer>
+
+</body>
+</html>
